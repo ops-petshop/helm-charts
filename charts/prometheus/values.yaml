@@ -128,6 +128,11 @@ server:
   ##
   name: server
 
+  ## Agent mode. Enabling it, will remove 'rule_files' section from the prometheus.yml
+  ## Prometheus in agent mode can't start if 'rule_files' is in the config.
+  ##
+  agent_mode: false
+
   ## Opt out of automounting Kubernetes API credentials.
   ## If set it will override serviceAccounts.server.automountServiceAccountToken value for ServiceAccount.
   # automountServiceAccountToken: false

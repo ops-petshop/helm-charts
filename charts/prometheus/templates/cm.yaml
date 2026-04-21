@@ -84,7 +84,9 @@ data:
 {{ toYaml $value | indent 4 }}
 {{- end }}
 {{- else }}
-{{ toYaml $value | default "{}" | indent 4 }}
+{{- if not $.Values.server.agent_mode }}
+{{ toYaml $value | indent 4 }}
+{{- end -}}
 {{- end }}
 {{- if eq $key "prometheus.yml" -}}
 {{- if or ($root.Values.alertmanager.enabled) ($root.Values.server.alertmanagers) }}
